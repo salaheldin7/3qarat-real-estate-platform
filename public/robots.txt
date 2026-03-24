@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /seller-panel/
+Disallow: /my-ads/
+Disallow: /profile/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+Sitemap: https://3qaraty.icu/sitemap.xml

@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 0 0% 15%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 15%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 15%;
+
+        --primary: 5 85% 55%;
+        --primary-foreground: 0 0% 98%;
+        --primary-hover: 5 85% 45%;
+
+        --secondary: 30 15% 95%;
+        --secondary-foreground: 0 0% 15%;
+
+        --muted: 0 0% 96%;
+        --muted-foreground: 0 0% 45%;
+
+        --accent: 25 35% 90%;
+        --accent-foreground: 0 0% 15%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 0 0% 90%;
+        --input: 0 0% 96%;
+        --ring: 5 85% 55%;
+
+        --radius: 8px;
+
+        /* Restaurant theme colors */
+        --restaurant-primary: 5 85% 55%;
+        --restaurant-dark: 0 0% 25%;
+        --restaurant-light: 0 0% 98%;
+        --restaurant-accent: 25 35% 90%;
+
+        /* Gradients */
+        --gradient-hero: linear-gradient(
+            135deg,
+            hsl(var(--restaurant-dark) / 0.8),
+            hsl(var(--restaurant-dark) / 0.6)
+        );
+        --gradient-card: linear-gradient(
+            145deg,
+            hsl(var(--card)),
+            hsl(var(--accent))
+        );
+
+        /* Shadows */
+        --shadow-elegant: 0 10px 30px -10px hsl(var(--restaurant-primary) / 0.2);
+        --shadow-card: 0 4px 20px -4px hsl(var(--restaurant-dark) / 0.1);
+
+        /* Animation */
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        --sidebar-background: 0 0% 98%;
+
+        --sidebar-foreground: 240 5.3% 26.1%;
+
+        --sidebar-primary: 240 5.9% 10%;
+
+        --sidebar-primary-foreground: 0 0% 98%;
+
+        --sidebar-accent: 240 4.8% 95.9%;
+
+        --sidebar-accent-foreground: 240 5.9% 10%;
+
+        --sidebar-border: 220 13% 91%;
+
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* RTL Support - More specific and controlled selectors */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Navigation specific RTL adjustments */
+[dir="rtl"] nav .flex {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] nav .justify-start {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] nav .justify-end {
+    justify-content: flex-start;
+}
+
+/* Text alignment for RTL - be more specific */
+[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left;
+}
+
+/* Margin auto adjustments for specific elements */
+[dir="rtl"] .ml-auto {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* Specific margin and padding adjustments - only for navigation and specific components */
+[dir="rtl"] nav .ml-1,
+[dir="rtl"] .nav-item .ml-1 {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+[dir="rtl"] nav .ml-2,
+[dir="rtl"] .nav-item .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] nav .ml-3,
+[dir="rtl"] .nav-item .ml-3 {
+    margin-left: 0;
+    margin-right: 0.75rem;
+}
+
+[dir="rtl"] nav .ml-4,
+[dir="rtl"] .nav-item .ml-4 {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] nav .mr-1,
+[dir="rtl"] .nav-item .mr-1 {
+    margin-right: 0;
+    margin-left: 0.25rem;
+}
+
+[dir="rtl"] nav .mr-2,
+[dir="rtl"] .nav-item .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] nav .mr-3,
+[dir="rtl"] .nav-item .mr-3 {
+    margin-right: 0;
+    margin-left: 0.75rem;
+}
+
+[dir="rtl"] nav .mr-4,
+[dir="rtl"] .nav-item .mr-4 {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* Padding adjustments for navigation */
+[dir="rtl"] nav .pl-1,
+[dir="rtl"] .nav-item .pl-1 {
+    padding-left: 0;
+    padding-right: 0.25rem;
+}
+
+[dir="rtl"] nav .pl-2,
+[dir="rtl"] .nav-item .pl-2 {
+    padding-left: 0;
+    padding-right: 0.5rem;
+}
+
+[dir="rtl"] nav .pl-3,
+[dir="rtl"] .nav-item .pl-3 {
+    padding-left: 0;
+    padding-right: 0.75rem;
+}
+
+[dir="rtl"] nav .pl-4,
+[dir="rtl"] .nav-item .pl-4 {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+[dir="rtl"] nav .pr-1,
+[dir="rtl"] .nav-item .pr-1 {
+    padding-right: 0;
+    padding-left: 0.25rem;
+}
+
+[dir="rtl"] nav .pr-2,
+[dir="rtl"] .nav-item .pr-2 {
+    padding-right: 0;
+    padding-left: 0.5rem;
+}
+
+[dir="rtl"] nav .pr-3,
+[dir="rtl"] .nav-item .pr-3 {
+    padding-right: 0;
+    padding-left: 0.75rem;
+}
+
+[dir="rtl"] nav .pr-4,
+[dir="rtl"] .nav-item .pr-4 {
+    padding-right: 0;
+    padding-left: 1rem;
+}
+
+/* Float adjustments for specific components only */
+[dir="rtl"] .float-left {
+    float: right;
+}
+
+[dir="rtl"] .float-right {
+    float: left;
+}
+
+/* Border adjustments - be more specific to avoid affecting footer */
+[dir="rtl"] nav .border-l,
+[dir="rtl"] .nav-border-l {
+    border-left: none;
+    border-right: 1px solid hsl(var(--border));
+}
+
+[dir="rtl"] nav .border-r,
+[dir="rtl"] .nav-border-r {
+    border-right: none;
+    border-left: 1px solid hsl(var(--border));
+}
+
+/* Footer specific RTL adjustments - override the global flex changes */
+[dir="rtl"] footer .grid {
+    direction: rtl;
+}
+
+[dir="rtl"] footer .flex {
+    flex-direction: row; /* Keep normal flex direction for footer */
+}
+
+[dir="rtl"] footer .space-x-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Ensure footer maintains proper width */
+[dir="rtl"] footer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+[dir="rtl"] footer .container {
+    width: 100%;
+    max-width: 100%;
+}
